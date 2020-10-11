@@ -36,7 +36,7 @@ function App() {
             <Link to="/" >Calum & Barrett</Link>
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart</a>
+            <Link to="/cart">Cart</Link>
             {
               userInfo
                 ? <Link to="/profile">{userInfo.name}</Link>
@@ -48,11 +48,14 @@ function App() {
           <h3>Shopping Categories</h3>
           <button className="sidebar-close-button" onClick={closeMenu}>x</button>
           <ul>
-            <li>
-              <a href="index.html">Shirts</a>
+          <li>
+              <Link to="/products">All Products</Link>
             </li>
             <li>
-              <a href="index.html">Jeans</a>
+              <Link to="/vitamins">Vitamins</Link>
+            </li>
+            <li>
+              <Link to="/supplements">Supplements</Link>
             </li>
           </ul>
         </aside>

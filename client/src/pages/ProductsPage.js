@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
 
@@ -15,7 +14,7 @@ function ProductsPage (props) {
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
   const productList = useSelector(state => state.productList);
-  const { loading, products, error } = productList;
+  const { products } = productList;
 
   const productSave = useSelector(state => state.productSave);
   const { loading: loadingSave, success: successSave, error: errorSave } = productSave;

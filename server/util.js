@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-import config from './config';
+import jwt from 'jsonwebtoken'
+import config from './config'
 
 const getToken = (user) => {
   return jwt.sign({
@@ -10,31 +10,29 @@ const getToken = (user) => {
   }, config.JWT_SECRET, {
     expiresIn: '24h'
   })
-};
+}
 
 const isAuth = (req, res, next) => {
-  const token = req.headers.authorization;
+  const token = req.headers.authorization
   if (token) {
-    const onlyToken = token.slice(7, token.length);
+    const onlyToken = token.slice(7, token.length)
     jwt.verify(onlyToken, config.JWT_SECRET, (err, decode) => {
       if (err) {
-        return res.status(401).send({ msg: 'Invalid Token' });
+        return res.status(401).send({ msg: 'Invalid Token' })
       }
-      req.user = decode;
-      next();
-      return;
-    });
+      req.user = decode
+      next()
+    })
   } else {
-    return res.status(401).send({ msg: "Token is not supplied" });
+    return res.status(401).send({ msg: 'Token is not supplied' })
   }
-
 }
 
 const isAdmin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
-    return next();
+    return next()
   }
   return res.status(401).send({ msg: 'Admin Token is not valid.' })
 }
 
-export { getToken, isAuth, isAdmin };
+export { getToken, isAuth, isAdmin }
