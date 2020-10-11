@@ -8,6 +8,9 @@ import SigninPage from './pages/SigninPage';
 import { useSelector } from 'react-redux';
 import RegisterPage from './pages/RegisterPage';
 import ProductsPage from './pages/ProductsPage';
+import ShippingPage from './pages/ShippingPage';
+import PaymentPage from './pages/PaymentPage';
+import PlaceOrderPage from './pages/PlaceOrderPage';
 
 function App() {
 
@@ -60,6 +63,9 @@ function App() {
             <Route path="/products" component={ProductsPage} />
             <Route path="/product/:id" component={ProductPage} />
             <Route path="/cart/:id?" component={CartPage} />
+            <Route path="/shipping" component={ShippingPage} />
+            <Route path="/payment" component={PaymentPage} />
+            <Route path="/placeorder" component={PlaceOrderPage} />
             <Route path="/" exact={true} component={HomePage} />
           </div>
 
