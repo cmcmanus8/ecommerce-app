@@ -1,7 +1,17 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    jest: true,
+    node: true
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    },
+    node: {
+      version: 'detect'
+    }
   },
   extends: [
     'plugin:react/recommended',
@@ -15,7 +25,9 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'react'
+    'react',
+    'prettier',
+    'jsx-a11y'
   ],
   rules: {
   }

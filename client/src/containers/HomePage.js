@@ -16,18 +16,19 @@ function HomePage (props) {
     return () => {
       //
     };
-  }, [])
+  }, [dispatch])
 
   return (
-    loading 
-      ? <div>Loading...</div>
+    <div className="products-wrapper">
+      <h1>Products</h1>
+      { loading 
+      ? <h2>Loading...</h2>
       : error
-        ? <div>{error}</div>
-        : <ul className="products">
+        ? <p>Error loading products: {error}</p>
+        : <div className="products-container">
             {
               products.map(product =>
-                <li key={product._id}>
-                <div className="product">
+                <div className="product" key={product._id}>
                   <Link to={'/product/' + product._id}>          
                     <img className="product-image" src={product.image} alt="product"/>
                   </Link>
@@ -38,10 +39,12 @@ function HomePage (props) {
                   <div className="product-price">{product.price}</div>
                   <div className="product-rating">{product.rating} Stars ({product.numReviews} Reviews)</div>
                 </div>
-              </li>
               )
               }
-            </ul>
+            </div>
+        } 
+    </div>
+    
   )
 }
 

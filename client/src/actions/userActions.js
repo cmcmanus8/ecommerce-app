@@ -1,6 +1,13 @@
 import axios from "axios";
 import Cookie from 'js-cookie';
-import { USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS, USER_SIGNIN_ERROR, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_REGISTER_ERROR } from "../constants/userConstants";
+import { 
+  USER_SIGNIN_REQUEST,
+  USER_SIGNIN_SUCCESS,
+  USER_SIGNIN_ERROR, 
+  USER_REGISTER_REQUEST,
+  USER_REGISTER_SUCCESS,
+  USER_REGISTER_ERROR
+} from "../constants/userConstants";
 
 const signin = (email, password) => async (dispatch) => {
   dispatch ({ type: USER_SIGNIN_REQUEST, payload: {email, password}});

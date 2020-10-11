@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { register } from '../actions/userActions';
+import { signin } from '../actions/userActions';
 
-function RegisterPage (props) {
+function SigninPage (props) {
 
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rePassword, setRePassword] = useState('');
-  const userRegister = useSelector(state => state.userRegister);
-  const { loading, userInfo, error } = userRegister;
+  const userSignin = useSelector(state => state.userSignin);
+  const { loading, userInfo, error } = userSignin;
   const dispatch = useDispatch();
+
   const redirect = props.location.search?props.location.search.split("=")[1]:'/';
 
   useEffect(() => {
@@ -21,11 +20,11 @@ function RegisterPage (props) {
     return () => {
       // 
     };
-  }, [userInfo]);
+  }, [props.history, redirect, userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(register(name, email, password));
+    dispatch(signin(email, password));
   }
 
   return (
@@ -33,19 +32,11 @@ function RegisterPage (props) {
       <form onSubmit={submitHandler} >
         <ul className="form-container">
           <li>
-            <h2>Create Account</h2>
+            <h2>Sign In</h2>
           </li>
           <li>
             {loading && <div>Loading...</div>}
             {error && <div>{error}</div>}
-          </li>
-          <li>
-            <label htmlFor="name">
-              Full Name
-            </label>
-            <input type="name" name="name" id="name" onChange={(e) => setName(e.target.value)}>
-
-            </input>
           </li>
           <li>
             <label htmlFor="email">
@@ -62,16 +53,13 @@ function RegisterPage (props) {
             </input>
           </li>
           <li>
-            <label htmlFor="rePassword">Re-Enter Password</label>
-            <input type="password" id="rePassword" name="rePassword" onChange={(e) => setRePassword(e.target.value)}>
-
-            </input>
+            <button type="submit" className="button primary">Sign In</button>
           </li>
           <li>
-            <button type="submit" className="button primary">Register</button>
+            New user?
           </li>
           <li>
-            Already registered? <Link to={redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="button secondary text-center">Sign In</Link>
+            <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center">Create your user account</Link>
           </li>
         </ul>
       </form>
@@ -79,4 +67,4 @@ function RegisterPage (props) {
   )
 }
 
-export default RegisterPage;
+export default SigninPage;

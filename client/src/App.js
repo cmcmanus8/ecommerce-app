@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
-import HomePage from './pages/HomePage';
-import ProductPage from './pages/ProductPage';
-import CartPage from './pages/CartPage';
-import SigninPage from './pages/SigninPage';
+import HomePage from './containers/HomePage';
+import ProductPage from './containers/ProductPage';
+import CartPage from './containers/CartPage';
+import SigninPage from './containers/SigninPage';
 import { useSelector } from 'react-redux';
-import RegisterPage from './pages/RegisterPage';
-import ProductsPage from './pages/ProductsPage';
-import ShippingPage from './pages/ShippingPage';
-import PaymentPage from './pages/PaymentPage';
-import PlaceOrderPage from './pages/PlaceOrderPage';
+import RegisterPage from './containers/RegisterPage';
+import ProductsPage from './containers/ProductsPage';
+import ShippingPage from './containers/ShippingPage';
+import PaymentPage from './containers/PaymentPage';
+import PlaceOrderPage from './containers/PlaceOrderPage';
 
 function App() {
 
