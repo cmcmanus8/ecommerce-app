@@ -7,6 +7,7 @@ import CartPage from './pages/CartPage';
 import SigninPage from './pages/SigninPage';
 import { useSelector } from 'react-redux';
 import RegisterPage from './pages/RegisterPage';
+import ProductsPage from './pages/ProductsPage';
 
 function App() {
 
@@ -56,6 +57,7 @@ function App() {
           <div className="content">
             <Route path="/signin" component={SigninPage} />
             <Route path="/register" component={RegisterPage} />
+            <Route path="/products" component={ProductsPage} />
             <Route path="/product/:id" component={ProductPage} />
             <Route path="/cart/:id?" component={CartPage} />
             <Route path="/" exact={true} component={HomePage} />
