@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import data from '../data';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,6 +6,7 @@ import { detailsProduct } from '../actions/productActions';
 
 function ProductPage (props) {
 
+  const [qty, setQty] = useState(1);
   const productDetails = useSelector(state => state.productDetails);
   const { product, loading, error } = productDetails;
   const dispatch = useDispatch();
@@ -16,6 +17,10 @@ function ProductPage (props) {
       // 
     };
   }, []);
+
+  const handleAddToCart = () => {
+    props.history.push("/cart/" + props.match.params.id + "?qty=" + qty)
+  };
 
   return (
     <div>
@@ -56,18 +61,21 @@ function ProductPage (props) {
                     Price: {product.price}
                   </li>
                   <li>
-                    Status: {product.status}
+                    Status: {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
                   </li>
+                  {product.countInStock > 0 &&
+                    <li>
+                      Qty: <select value={qty} onChange={(e) => {setQty(e.target.value)}}>
+                        {[...Array(product.countInStock).keys()].map(x =>
+                          <option value={x + 1}>{x + 1}</option>
+                        )}
+                      </select>
+                    </li>
+                  }
                   <li>
-                    Qty: <select>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                    </select>
-                  </li>
-                  <li>
-                    <button className="button">Add to Cart</button>
+                    {product.countInStock > 0 && 
+                      <button onClick={handleAddToCart} className="button">Add to Cart</button>
+                    }
                   </li>
                 </ul>
               </div>
