@@ -4,10 +4,12 @@ Simple ecommerce web app.
 
 ### To Do:
 
+```
 1. Complete Order Process
 2. Create User Profiles
 3. Review/Ratings system
 4. Store Product Images in cloud
+```
 
 ### To Run:
 
