@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+h1 {
+  font-size: $big-font-size;
+  color: #00594F;
+}
+
+h2 {
+  font-size: $mid-font-size;
+  color: #00594F;
+}
+
+h3 {
+  font-size: $default-font-size;
+  color: #00594F;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    color: $white-color;
+  }
+}

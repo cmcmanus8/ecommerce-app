@@ -1,0 +1,20 @@
+@import './abstracts/mixins';
+@import './abstracts/variables';
+
+@import './base/base';
+@import './base/typography';
+
+@import './components/buttons';
+@import './components/forms';
+@import './components/checkoutSteps';
+
+@import './container/pages';
+// @import './layout/sections';
+
+// @import './sections/about';
+// @import './sections/contact';
+// @import './sections/hero';
+// @import './sections/skills';
+// @import './sections/experience';
+
+// @import './vendor/css/font-awesome.min.css';

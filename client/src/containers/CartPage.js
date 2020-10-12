@@ -21,7 +21,7 @@ function CartPage (props) {
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
-  }, [dispatch, productId, qty]);
+  }, []);
 
   const checkoutHandler = () => {
     props.history.push("/signin?redirect=shipping");
@@ -45,7 +45,7 @@ function CartPage (props) {
               : cartItems.map( item =>
                 <li>
                   <div className="cart-image">
-                    <img src={item.image} alt="product" />
+                    <img src="/images/temp.jpg" alt="product" />
                   </div>
                   <div className="cart-name">
                     <div>
@@ -53,16 +53,15 @@ function CartPage (props) {
                         {item.name}
                       </Link>
                     </div>
-                    <div>
+                    <div className="cart-qty">
                       Qty:
                       <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
                         {[...Array(item.countInStock).keys()].map(x =>
                           <option key={x + 1} value={x + 1}>{x + 1}</option>
                         )}
                       </select>
-                      {console.log("++++++", item)}
                       <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)} >
-                        Delete
+                        Remove
                       </button>
                     </div>
                   </div>
@@ -76,9 +75,9 @@ function CartPage (props) {
       </div>
       <div className="cart-action">
           <h3>
-            Subtotal ({ cartItems.reduce((a, c) => a + c.qty, 0)} items)
+            Subtotal ({ cartItems.reduce((a, c) => (a + c.qty), 0)} items)
             :
-            £ {cartItems.reduce((a,c) => a + c.price * c.qty, 0)}
+            £ {cartItems.reduce((a,c) => (a + c.price * c.qty), 0)}
           </h3>
           <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
             Proceed to Checkout

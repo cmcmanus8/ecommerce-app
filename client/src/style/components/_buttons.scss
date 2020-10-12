@@ -1,0 +1,16 @@
+button {
+  font-size: 1.6rem;
+  background-color: $tertiary-color;
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.primary {
+    background-color: $tertiary-color;
+  }
+
+  &.secondary {
+    background-color: $tertiary-color;
+  }
+}

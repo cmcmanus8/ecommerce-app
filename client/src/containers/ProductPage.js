@@ -15,7 +15,7 @@ function ProductPage (props) {
     return () => {
       // 
     };
-  }, [dispatch, props.match.params.id]);
+  }, []);
 
   const handleAddToCart = () => {
     props.history.push("/cart/" + props.match.params.id + "?qty=" + qty)
@@ -33,7 +33,7 @@ function ProductPage (props) {
           : (
             <div className="details">
               <div className="details-image">
-                <img src={product.image} alt="product"></img>
+                <img src="/images/temp.jpg" alt="product"></img>
               </div>
               <div className="details-info">
                 <ul>
@@ -49,7 +49,7 @@ function ProductPage (props) {
                   <li>
                     Description:
                     <div>
-                      {product.description}
+                      <b>{product.description}</b>
                     </div>
                   </li>
                 </ul>
@@ -57,7 +57,7 @@ function ProductPage (props) {
               <div className="details-action">
                 <ul>
                   <li>
-                    Price: {product.price}
+                    Price: <b>£{product.price}</b>
                   </li>
                   <li>
                     Status: {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
@@ -80,7 +80,7 @@ function ProductPage (props) {
               </div>
             </div>
             )
-            };
+            }
     </div>
   )
 }

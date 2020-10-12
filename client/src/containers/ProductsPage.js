@@ -57,7 +57,7 @@ function ProductsPage (props) {
   return (
     <div className="content content-margined">
       <div className="product-header">
-        <h3>Products</h3>
+        <h2>Products</h2>
         <button className="button" onClick={() => openModal({})}>Create Product</button>
       </div>
       {modalVisible &&

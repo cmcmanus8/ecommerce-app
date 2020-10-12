@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import './App.css';
 import HomePage from './containers/HomePage';
 import ProductPage from './containers/ProductPage';
 import CartPage from './containers/CartPage';
@@ -36,7 +35,7 @@ function App() {
             <Link to="/" >Calum & Barrett</Link>
           </div>
           <div className="header-links">
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Go to Cart</Link>
             {
               userInfo
                 ? <Link to="/profile">{userInfo.name}</Link>

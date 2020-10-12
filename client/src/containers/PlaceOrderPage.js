@@ -38,7 +38,7 @@ function PlaceOrderPage (props) {
               Shipping
             </h3>
             <div>
-              {cart.shipping.address}, {cart.shipping.city}, {cart.shipping.postalCode}, {cart.shipping.country}, 
+              {cart.shipping.address}, {cart.shipping.city}, {cart.shipping.postalCode}, {cart.shipping.country} 
             </div>
           </div>
           <div>
@@ -46,7 +46,7 @@ function PlaceOrderPage (props) {
               Payment
             </h3>
             <div>
-              Payment Method: {cart.payment.paymentMethod}
+              Payment Method: Paypal
             </div>
           </div>
           <div>
@@ -55,19 +55,16 @@ function PlaceOrderPage (props) {
               <h3>
                 Shopping Cart
               </h3>
-              <div>
-                Price
-              </div>
             </li>
             {
               cartItems.length === 0
                 ? <div>Cart is empty</div>
                 : cartItems.map( item =>
                   <li>
-                    <div className="cart-image">
+                    <div className="placeorder-cart-image">
                       <img src={item.image} alt="product" />
                     </div>
-                    <div className="cart-name">
+                    <div className="placeorder-cart-name">
                       <div>
                         <Link to={"/product/" + item.product}>
                           {item.name}
@@ -77,8 +74,8 @@ function PlaceOrderPage (props) {
                         Qty: {item.qty}
                       </div>
                     </div>
-                    <div className="cart-price">
-                      £{item.price}
+                    <div className="placeorder-cart-price">
+                      £{item.price * item.qty}
                     </div>
                   </li>
                   )
