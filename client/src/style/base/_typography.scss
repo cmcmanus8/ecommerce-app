@@ -2,23 +2,23 @@
 
 h1 {
   font-size: $big-font-size;
-  color: #00594F;
+  color: $primary-colo;
 }
 
 h2 {
   font-size: $mid-font-size;
-  color: #00594F;
+  color: $primary-colo;
 }
 
 h3 {
   font-size: $default-font-size;
-  color: #00594F;
+  color: $primary-color;
 }
 
 a {
   text-decoration: none;
 
   &:hover {
-    color: $white-color;
+    color: $secondary-color;
   }
 }
